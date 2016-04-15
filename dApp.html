@@ -67,11 +67,11 @@
 
 					<label class="ui label">Account</label>
 
-					<input type="number" id="_checkBalanceAccount" class="ui input" placeholder="1000" />
+					<input type="text" id="_checkBalanceAccount" class="ui input" placeholder="1000" />
 
 					<br /><br />
 
-					<button id="_checkBalance" class="ui button blue">Create New Token</button>
+					<button id="_checkBalance" class="ui button blue">Check Balance</button>
 
 					<div id="checkBalanceResponse" class="ui message">
 					  <div class="header">
@@ -110,7 +110,7 @@
 			var Token = web3.eth.contract(TokenABI);
 
 			// setup token instance
-			var token = Token.at("");
+			var token = Token.at("0xb44bead0074c93a3619859d289911f6f117cfcac");
 
 			// setup transaction object
 			var transactionObject = {
@@ -153,9 +153,9 @@
 			});
 
 			// Transfer Tokens
-			$("_transfer").click(function(){
+			$("#_transfer").click(function(){
 				var account = $("#_transferAccount").val(),
-						amount = parseInt($("#_transferAccount").val());
+						amount = parseInt($("#_transferAmount").val());
 
 				console.log("Transfer Details", account, amount);
 
@@ -163,16 +163,31 @@
 				token.transfer(account, amount, transactionObject, function(error, transactionHash){
 					if(error) {
 						$("#transferTokenResponse").show();
-						return $("#transferTokenResponse_body").html("There was an error deploying your token: " + String(error));
+						return $("#transferTokenResponse_body").html("There was an error transfering your token: " + String(error));
 					}
 
 					$("#transferTokenResponse").show();
 					return $("#transferTokenResponse_body").html("Your token is being transfered with tx hash: " + String(transactionHash));
 				});
+
+				token.Transfer({}, function(error, result){
+					if(error) {
+						$("#transferTokenResponse").show();
+						return $("#transferTokenResponse_body").html("There was an error transfering your token: " + String(error));
+					}
+
+					$("#transferTokenResponse").show();
+					return $("#transferTokenResponse_body").html("Your token has been transfered! " + String(result.transactionHash));
+				});
 			});
 
 			$("#_checkBalance").click(function(){
+				var account = $("#_checkBalanceAccount").val();
 
+				token.balanceOf(account, function(error, balance){
+					$("#checkBalanceResponse").show();
+					return $("#checkBalanceResponse_body").html("The balance is: " + String(balance.toString(10)));
+				});
 			});
 		</script>
 	</body>
