@@ -25,3 +25,8 @@ python -m SimpleHTTPServer 8000
 ```
 
 Then in Chrome open `http://localhost:8000` to view the dApp
+
+
+### MetaMask
+
+https://chrome.google.com/webstore/detail/nkbihfbeogaeaoehlefnkodbefgpgknn/
