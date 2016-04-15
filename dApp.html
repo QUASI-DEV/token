@@ -90,9 +90,9 @@
 			// geth --testnet --unlock "0" --shh --rpc --rpcapi="db,eth,net,web3,shh" --rpcaddr="0.0.0.0" --rpccorsdomain="*"
 
 			// setup metamask provider
-			//if(typeof window.web3.currentProvider !== 'undefined')
-			//	web3.setProvider(window.web3.currentProvider);
-			//else
+			if(typeof window.web3.currentProvider !== 'undefined')
+				web3.setProvider(window.web3.currentProvider);
+			else
 				web3.setProvider(new web3.providers.HttpProvider('http://159.203.28.215:8545'));
 
 			// hide all messages

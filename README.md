@@ -13,7 +13,7 @@ A basic standard token dApp (semantic/jquery/web3)
 
 1. Run an Ethereum testnet geth node:
 
-		geth --testnet --unlock "0" --shh --rpc --rpcapi="db,eth,net,web3,shh" --rpcaddr="0.0.0.0" --rpccorsdomain="*"
+		geth --testnet --unlock "0" --rpc --rpcapi="db,eth,net,web3" --rpcaddr="0.0.0.0" --rpccorsdomain="*"
 
 2. Open the dApp.html in Chrome
 
@@ -30,3 +30,8 @@ Then in Chrome open `http://localhost:8000` to view the dApp
 ### MetaMask
 
 https://chrome.google.com/webstore/detail/nkbihfbeogaeaoehlefnkodbefgpgknn/
+
+
+### Account Nick
+
+0x10f161af2fa7b897abacdce20a95b79d436772a1
