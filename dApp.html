@@ -30,6 +30,56 @@
 					  </div>
 					  <p id="newTokenResponse_body"></p>
 					</div>
+
+
+
+					<hr class="ui hidden divider" />
+
+
+
+					<h3 class="ui aligned header">Transfer Tokens</h3>
+
+
+					<label class="ui label">Transfer To</label>
+
+					<input type="text" id="_transferTo" class="ui input" placeholder="0x" />
+
+					<label class="ui label">Amount</label>
+
+					<input type="number" id="_transferAmount" class="ui input" placeholder="1000" />
+
+					<button id="_transfer" class="ui button blue">Transfer Tokens</button>
+
+					<div id="transferTokenResponse" class="ui message">
+					  <div class="header">
+						    Transfer Tokens
+					  </div>
+					  <p id="transferTokenResponse_body"></p>
+					</div>
+
+
+
+					<hr class="ui hidden divider" />
+
+
+
+					<h3 class="ui aligned header">Check Balance</h3>
+
+					<label class="ui label">Account</label>
+
+					<input type="number" id="_checkBalanceAccount" class="ui input" placeholder="1000" />
+
+					<br /><br />
+
+					<button id="_checkBalance" class="ui button blue">Create New Token</button>
+
+					<div id="checkBalanceResponse" class="ui message">
+					  <div class="header">
+						    Check Balance
+					  </div>
+					  <p id="checkBalanceResponse_body"></p>
+					</div>
+
 		</div>
 
 		<script type="text/javascript">
@@ -47,6 +97,8 @@
 
 			// hide all messages
 			$("#newTokenResponse").hide();
+			$("#transferTokenResponse").hide();
+			$("#checkBalanceResponse").hide();
 
 			// setup token contract ABI
 			var TokenABI =[ {"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"type":"function"},{"inputs":[{"name":"_initialAmount","type":"uint256"}],"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
