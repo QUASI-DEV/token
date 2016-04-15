@@ -34,4 +34,4 @@ https://chrome.google.com/webstore/detail/nkbihfbeogaeaoehlefnkodbefgpgknn/
 
 ### Account Nick
 
-0x10f161af2fa7b897abacdce20a95b79d436772a1
+0x3364ed250ea774146a0fbbc1da0ffa6a81514ca7
